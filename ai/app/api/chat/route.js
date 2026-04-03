@@ -8,7 +8,7 @@ export async function POST(req) {
     const { messages } = await req.json();
     const latestMessage = messages[messages.length - 1].content;
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     
     const history = messages.slice(0, -1).map(msg => ({
       role: msg.role === 'user' ? 'user' : 'model',
